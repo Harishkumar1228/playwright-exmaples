@@ -1,0 +1,105 @@
+
+Playwright - webbased functional automation tool
+Web based - desktop, mobile - web-view apps [ which works on browser] and doesnt support mobile native apps
+Supports - javascript, typescript, java, python, c#/.net
+Most popular after 2020 & Very easy installation
+Browser supports - Chromium based browser, Webkit - safari.
+OS Supports - Windows, Mac, Linux & CLI [ Commad line interpretter]
+
+Feature of Playwright - Open source free automation tool 
+                      - Functional, API & Accessibility testing [need 3rd party plugpin]
+                      - Supports CI/CD & Docker
+                      - Parallel testing is inbuild [no need 3rd party software like testng]
+                      - Auto wait mechanism - in built [ no need to add implict/explict waits in code]
+                      - Build in Assertions
+                      - Supports multi tab & multi Windows
+                      - Supports frames and Shadow DOM elements
+                      - Supports paramaterization 
+                      - Supports mobile emulator
+                      - Fast & relaiable 
+How to run test case in Playwright
+1. npx Playwright test -- headless mode // run all test in all browser with out head
+2. npx playwright test --headed //run all test in all browser with head
+3. npx playwright show-report
+4. To run specific file - npx playwright test example.javascript
+5. To run on specific browser-- npx playwright test --project=Chromium
+6. To debug and see each steps of execution and codes -- npx playwright test filename --project=Chromium --headed--debug
+7. To create test , we need to import packages from playwright.
+    import{test,expect} from '@playwright test';
+    async: this command will makes JS to wait coz all methods cannot finish their task immediatly.
+    await: makes command waits until it recieves the output from previous command.
+    
+
+ 1. Locators in playwright  page.Locators('property/xpath/CSS')
+   Property
+   CSS 
+   Xpath   
+2. page.getByTitle() : to locate an element by totle attribute
+3. Two methods to get the text of an element
+  a. innerText()
+  b. textContent()
+4. To records scripts in playwright  
+   cmnd// npx playwright codegen = it enables record tool and browser. [ playwright inspector]
+   cmnd// npx playwright codegen -o test/mytest.spec.js = automatically reads/records the code and saves it in a file
+   cmnd// npx playwright codegen --target java = records the scrpit in tagereted lang [ex: js,java,python]
+   cmnd// npx playwright codegen -b webkit | safari | chromium = record in specific targeted browser
+   cmnd// npx playwright codegen --device "iphone 13" = record m-web in targeted mobile
+
+5. Assertions 
+   --> test assertion is a form of expect function [actual exection is matching with the expected result]
+   --> two types of Assertions
+      a. Hard - auto - await
+      b. Soft - auto - await
+      c. JS based assertions - non auto
+      d. playwright assertions starts with await which bring auto await to each element across scripts
+      e. JS assertions - starts with expect and it doesnot supports auto awaits.
+      f. Page based assertions
+          (i) toHaveTitle()
+          (ii) toHaveURL()
+  Hard & Soft Assertions
+   Hard - If one line of execution fails it will not continue to next line
+   soft - Waits for execution if it fails it skips that and execute all other passed cases
+ 6. Time outs
+    a. defualt timeout 30000ms- 30s it waits for each element  
+    b. test.use{timeout:5000} - hard time out for 5 seconds  
+
+ 7. Dropdown
+     --> In playwright we have diff type to handle Dropdown
+         a. label
+         b. visible text       
+8. Screenshot 
+ 
+
+
+9. Reports - list, html, JSON, 3rd party[Allure]
+
+Allure Report - 
+a. Install - npm i -D @playwright/test allure-playwright
+b. Install comndline- npm install -g allure-commandline --save-dev
+c. generate allure report - allure generate allure-results -o allure-report --clean
+d. show report - allure open allure-report
+e. record screenshot and video for failures , add few config in playwright.config
+      - trace: 'on-first-retry',
+      - screenshot:"only-on-failure",
+      - videos:"on"  
+
+Framework
+1. POM - project object model
+
+
+
+
+
+
+
+
+
+
+mkdir -p src/tests
+mkdir -p src/pages
+mkdir -p src/utils
+mkdir -p src/config
+mkdir -p src/api
+mkdir -p src/reporting
+mkdir -p src/logging
+mkdir -p src/data 
